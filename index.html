@@ -1,0 +1,138 @@
+﻿<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>滕王阁</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script type="text/javascript">
+ window.onload=function(){
+ var wrap=document.getElementById('wrap'),
+ pic=document.getElementById('pic').getElementsByTagName("li"),
+ list=document.getElementById('list').getElementsByTagName('li'),
+ index=0,
+ timer=null;
+// 定义并调用自动播放函数
+ timer = setInterval(autoPlay, 2000);
+ 
+ // 鼠标划过整个容器时停止自动播放
+ wrap.onmouseover = function () {
+ clearInterval(timer);
+ }
+ 
+ // 鼠标离开整个容器时继续播放至下一张
+ wrap.onmouseout = function () {
+ timer = setInterval(autoPlay, 2000);
+ }
+ // 遍历所有数字导航实现划过切换至对应的图片
+ for (var i = 0; i < list.length; i++) {
+ list[i].onmouseover = function () {
+ clearInterval(timer);
+ index = this.innerText - 1;
+ changePic(index);
+ };
+ };
+ 
+ function autoPlay () {
+ if (++index >= pic.length) index = 0;
+ changePic(index);
+ }
+ 
+ // 定义图片切换函数
+ function changePic (curIndex) {
+ for (var i = 0; i < pic.length; ++i) {
+ pic[i].style.display = "none";
+ list[i].className = "";
+ }
+ pic[curIndex].style.display = "block";
+ list[curIndex].className = "on";
+ }
+ 
+ };
+	</script> 
+ 
+</head>
+<body>
+<div> 
+	 <div class="wrap" id="wrap">
+		 <ul id="pic">
+			<li><img src="images/banner.jpg" alt=""></li>
+            <li><img src="images/banner2.jpg" alt=""></li>
+            <li><img src="images/banner1.jpg" alt=""></li>
+ </ul>
+ <ol id="list">
+ <li class="on">1</li>
+     <li>2</li>
+	 <li>3</li>
+ </ol>
+ </div></div>
+	
+
+   <div class="nav">
+   <ul>
+      <li><a href="index.html" class="on">首页</a></li>
+      <li><a href="page1.html">历史沿革</a></li>
+      <li><a href="page2.html">建筑格局</a></li>
+      <li><a href="page3.html">滕王阁美景</a></li>
+       <li>
+         <a href="page4.html">主要建筑</a>
+          <ul>
+             <li><a href="page4.html">俯畅园</a></li>
+             <li><a href="page4.html">仿古街</a></li>
+             <li><a href="page4.html">圣旨博物馆</a></li>
+          </ul>
+      </li>
+      <li><a href="page5.html">给我留言</a></li>
+    </ul>
+  </div>
+	
+ 
+
+   <div class="nr">
+      <p>滕王阁，位于江西省南昌市西北部沿江路赣江东岸，始建于唐永徽四年（653年），因唐太宗李世民之弟——滕王李元婴始建而得名，又因初唐诗人王勃诗句“落霞与孤鹜齐飞，秋水共长天一色”而流芳后世。 滕王阁与湖北武汉黄鹤楼、湖南岳阳楼并称为“江南三大名楼”。 </p>
+      <p>唐贞观十三年（639年），唐高祖李渊第二十二子、唐太宗李世民之弟李元婴被封于山东滕州，为滕王。唐显庆四年（659年），滕王李元婴调任江南洪州（今江西南昌）都督，因其思念故地滕州，修筑了著名的“滕王阁”。滕王阁因王勃的《滕王阁序》为后人熟知，成为永恒的经典。滕王阁采取独特“明三暗七”格局，台座以上的主阁是三层带回廊建筑，内部共有七层，分为三个明层、三个暗层及阁楼。</p>
+      <p>2018年10月29日，南昌滕王阁旅游区被文化和旅游部批准为国家AAAAA级旅游景区。</p>
+   </div>
+    <div id="demo" style="overflow:hidden;width:1160px;color:#ffffff; margin:0 auto 10px;">
+    <table border="0" align="left" cellpadding="0" cellspacing="0" cellspace="0">
+      <tr>
+        <td valign="top" id="demo1"><table width="1160"  border="0" cellspacing="5" cellpadding="0">
+            <tr>
+              <td><a href="#"><img src="images/1.jpg" height="380" border="0" style="margin-left:15px;"></a></td>
+              <td><a href="#"><img src="images/2.jpg"  height="380" border="0" style="margin-left:15px;"></a></td>
+              <td><a href="#"><img src="images/3.jpg" height="380" border="0" style="margin-left:15px;"></a></td>
+              <td><a href="#"><img src="images/4.jpg" height="380" border="0" style="margin-left:15px;"></a></td>
+            </tr>
+          </table></td>
+        <td id="demo2" valign="top"></td>
+      </tr>
+    </table>
+  </div>
+<script>
+        var speed=30
+        demo2.innerHTML=demo1.innerHTML
+        function Marquee(){
+        if(demo2.offsetWidth-demo.scrollLeft<=0)
+            demo.scrollLeft-=demo1.offsetWidth
+        else{
+            demo.scrollLeft++
+            }
+        }
+        var MyMar=setInterval(Marquee,speed)
+        demo.onmouseover=function() {clearInterval(MyMar)}
+        demo.onmouseout=function() {MyMar=setInterval(Marquee,speed)}
+    </script> 
+ <div class="link">
+     友情链接：<a href="https://www.sohu.com/" target="_blank">搜孤</a><a href="https://www.163.com/" target="_blank">网易</a><a href="https://www.baidu.com/" target="_blank">百度</a>
+ </div>
+ 
+ <div class="foot">&copy;版权所有：高凯月 202001011166</div>
+
+<audio  loop="loop" autoplay="autoplay">
+  <source src="media/y.mp3" >
+	</audio>
+
+
+
+</body>
+</html>
+
